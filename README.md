@@ -8,11 +8,12 @@
 
 - Python
 - Node.js
+- Last.fm API key (you can get one [here](https://www.last.fm/api/account/create))
 
 ### Setup
 
-1. `npm install`
-2. `cd src/app/api && pip install -r requirements.txt`
+1. `npm run setup`
+2. Replace `<your_lastfm_api_key>` with your Last.fm API key in `.env`
 
 ### Running
 
