@@ -1,0 +1,6 @@
+Generate 3 quiz questions about the data. 
+Only ask questions about tracks with a cluster of 0 (don't mention cluster in the questions).
+The first piece of data I will give is the time period, which you can include in the question.
+For reference, playcount refers to the amount of times a track has been listened to in the time period.
+Global playcount refers to total plays for all users for all time.
+Provide each question, the 4 answer choices for each question, and their answers in a json format.

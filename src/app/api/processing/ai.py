@@ -1,6 +1,7 @@
 import os
 from dotenv import load_dotenv
 from groq import Groq
+import json
 
 load_dotenv()
 
@@ -11,16 +12,19 @@ client = Groq(
 )
 
 
-def ai(df):
+def ai(df, period):
+  with open(os.path.join(os.path.dirname(__file__), "prompt.txt"), "r") as file:
+    prompt = file.read().strip()
   chat_completion = client.chat.completions.create(
     messages=[
       {
         "role": "user",
-        "content": "Generate 3 quiz questions about the data. Only ask questions about tracks with a cluster of 1 (don't mention cluster in the questions)"
-        + df.to_json(),
+        "content": prompt + period + df.to_json(),
       }
     ],
     model="llama-3.3-70b-versatile",
+    response_format={"type": "json_object"},
   )
 
-  print(chat_completion.choices[0].message.content)
+  raw = json.loads(chat_completion.choices[0].message.content)
+  return raw["questions"]

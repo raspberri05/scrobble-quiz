@@ -1,12 +1,12 @@
-from ai import ai
 from fetch import fetch
-from ml import ml
+from processing.ml import ml
+from processing.ai import ai
 
 
 def combine(username, period):
   metadata = {"username": username, "period": period}
   tracks = fetch(username, period)
   df = ml(tracks)
-  ai(df)
-  return_data = {"metadata": metadata, "tracks": tracks}
+  questions = ai(df, period)
+  return_data = {"metadata": metadata, "questions": questions, "tracks": tracks}
   return return_data
