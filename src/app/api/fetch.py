@@ -18,7 +18,7 @@ def get_top(username, period):
   clean = []
   counter = 0
   for track in raw:
-    if counter >= 5:
+    if counter >= 20:
       break
     clean.append(
       {
@@ -41,7 +41,7 @@ def get_info(data):
         API_URL, API_KEY, track["artist"], track["name"]
       )
     )
-    if counter >= 5:
+    if counter >= 20:
       break
     temp = response.json()
 

@@ -1,4 +1,6 @@
 fastapi[standard]
 requests
 pandas
+groq
+scikit-learn
 ruff
