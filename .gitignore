@@ -5,5 +5,5 @@
 npm-debug.log*
 .env
 next-env.d.ts
-/src/app/api/__pycache__
+**/__pycache__/
 .ruff_cache
