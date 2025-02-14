@@ -9,11 +9,12 @@
 - Python
 - Node.js
 - Last.fm API key (you can get one [here](https://www.last.fm/api/account/create))
+- Groq API key (you can get one [here](https://console.groq.com/docs/quickstart))
 
 ### Setup
 
 1. `npm run setup`
-2. Replace `<your_lastfm_api_key>` with your Last.fm API key in `.env`
+2. Replace the fields for `LASTFM_API_KEY` and `GROQ_API_KEY` with their actual values
 
 ### Running
 
