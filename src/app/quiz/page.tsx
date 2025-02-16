@@ -1,12 +1,12 @@
 "use client";
 
 import Loading from "@/components/loading";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { Question } from "@/types";
 import QuizDisplay from "@/components/quiz-display";
 
-export default function Page() {
+function QuizContent() {
   const searchParams = useSearchParams();
   const username = searchParams.get("username");
   const period = searchParams.get("period");
@@ -31,12 +31,20 @@ export default function Page() {
           setQuestions(data.questions);
         }
       });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [username, period]);
+
   return (
     <div>
       {loading && <Loading />}
       {!loading && <QuizDisplay questions={questions} />}
     </div>
+  );
+}
+
+export default function Page() {
+  return (
+    <Suspense fallback={<Loading />}>
+      <QuizContent />
+    </Suspense>
   );
 }
