@@ -8,8 +8,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Music2Icon } from "lucide-react";
+import { redirect } from "next/navigation";
 
 export default function Page() {
+  async function submitUsername(formData: FormData) {
+    "use server";
+    const username = formData.get("username") as string;
+    redirect(`/quiz?username=${username}&period=7day`);
+  }
   return (
     <div className="min-h-screen flex items-center justify-center">
       <Card className="w-full max-w-md ">
@@ -25,9 +31,14 @@ export default function Page() {
         <CardContent>
           <form className="space-y-4">
             <div>
-              <Input type="text" placeholder="Enter your Last.fm username" />
+              <Input
+                type="text"
+                name="username"
+                placeholder="Enter your Last.fm username"
+              />
             </div>
             <Button
+              formAction={submitUsername}
               type="submit"
               className="w-full bg-gradient-to-r from-purple-500 to-red-500 hover:from-purple-600 hover:to-red-600"
             >

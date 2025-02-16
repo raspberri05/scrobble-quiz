@@ -27,4 +27,5 @@ def ai(df, period):
   )
 
   raw = json.loads(chat_completion.choices[0].message.content)
+  print(raw)
   return raw["questions"]

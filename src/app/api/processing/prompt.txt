@@ -4,3 +4,7 @@ The first piece of data I will give is the time period, which you can include in
 For reference, playcount refers to the amount of times a track has been listened to in the time period.
 Global playcount refers to total plays for all users for all time.
 Provide each question, the 4 answer choices for each question, and their answers in a json format.
+The entire response should be a list of question objects
+The question field should be named "question", The correct response field should be named "answer", and the options field should be named "options" and contain an array.
+Also, within each question, provided a field that is set to false that tracks whether the answer was correct or not.
+This field should be called "correct".
