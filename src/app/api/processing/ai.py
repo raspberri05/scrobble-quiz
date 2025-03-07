@@ -18,8 +18,12 @@ def ai(df, period):
   chat_completion = client.chat.completions.create(
     messages=[
       {
+        "role": "system",
+        "content": prompt,
+      },
+      {
         "role": "user",
-        "content": prompt + period + df.to_json(),
+        "content": period + df.to_json(),
       }
     ],
     model="llama-3.3-70b-versatile",

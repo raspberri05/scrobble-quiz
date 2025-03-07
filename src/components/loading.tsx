@@ -7,7 +7,11 @@ export default function Loadinf() {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => setProgress(100), 0);
+    let timer = setTimeout(() => setProgress(25), 1000);
+    timer = setTimeout(() => setProgress(50), 2000);
+    timer = setTimeout(() => setProgress(75), 3000);
+    timer = setTimeout(() => setProgress(100), 4000);
+
     return () => clearTimeout(timer);
   }, []);
 
