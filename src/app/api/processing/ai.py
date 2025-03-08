@@ -24,7 +24,7 @@ def ai(df, period):
       {
         "role": "user",
         "content": period + df.to_json(),
-      }
+      },
     ],
     model="llama-3.3-70b-versatile",
     response_format={"type": "json_object"},
